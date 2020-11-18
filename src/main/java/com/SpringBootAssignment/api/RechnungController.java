@@ -57,6 +57,18 @@ public class RechnungController {
 
     }
 
+    @DeleteMapping("/kunden/{id}/rechnungen/{rechnungsid}")
+    public void deleteRechnung(@PathVariable(value = "id") Long kundeid,
+                                   @PathVariable(value = "rechnungsid") Long rechid,
+                                   @Validated @RequestBody Rechnung rechnungsRequest) {
+
+
+        Kunde k1 = kundenService.get(kundeid);
+        Rechnung r1 = rechnungService.get(rechid);
+        rechnungService.delete(r1.getId());
+
+    }
+
 
 
 }
