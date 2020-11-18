@@ -22,6 +22,12 @@ public class KundeController {
         return kundenService.listAll();
     }
 
+    @GetMapping("/kunden/{id}")
+    public Kunde getKundeById(@PathVariable(value = "id") Long id) {
+
+        return kundenService.get(id);
+    }
+
     @PostMapping(value = "/kunden", consumes = "application/json", produces = "application/json")
     public Kunde createKunde(@Validated @RequestBody Kunde kunde) {
 
@@ -29,11 +35,15 @@ public class KundeController {
     }
 
     @PutMapping("/kunden/{id}")
-    public Kunde updateKunde(@PathVariable Long id, @Validated @RequestBody Kunde kunde) {
+    public Kunde updateKunde(@PathVariable(value = "id") Long id, @Validated @RequestBody Kunde kunde) {
 
-        Kunde k1 = kundenService.get(id);
-        Kunde k2 = new Kunde(k1.getVorname(),k1.getNachname());
-        return kundenService.save(k2);
+
+         kunde.setId(kundenService.get(id).getId());
+         kunde.setVorname(kundenService.get(id).getVorname());
+         kunde.setNachname(kundenService.get(id).getNachname());
+         kunde.setRechnungsliste(kundenService.get(id).getRechnungsliste());
+         kundenService.save(kunde);
+         return kunde;
     }
 
 

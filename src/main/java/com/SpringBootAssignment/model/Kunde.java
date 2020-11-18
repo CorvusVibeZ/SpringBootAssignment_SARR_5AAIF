@@ -6,9 +6,10 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.List;
 
+
+
 @Entity
 @Table(name = "kunde")
-
 public class Kunde {
 
     @Id
@@ -25,6 +26,10 @@ public class Kunde {
 
     @OneToMany
     private List<Rechnung> rechnungsliste;
+
+    public Kunde() {
+
+    }
 
     public Kunde(String vorname, String nachname) {
         this.vorname = vorname;
