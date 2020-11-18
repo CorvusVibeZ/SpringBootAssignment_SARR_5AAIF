@@ -32,13 +32,13 @@ public class RechnungController {
         return k1.getRechnungsliste();
     }
 
-    @PostMapping(value = "/kunden/{id}/rechnungen",consumes = "application/json",produces = "application/json")
+    @PostMapping("/kunden/{id}/rechnungen")
     public Rechnung createRechnung(@PathVariable(value = "id") Long kundenid,
                                    @Validated @RequestBody Rechnung rechnung) {
 
 
         Kunde k1 = kundenService.get(kundenid);
-        k1.getRechnungsliste().add(rechnung);
+        rechnung.setKunde(k1);
         return rechnungService.save(rechnung);
     }
 
@@ -64,8 +64,8 @@ public class RechnungController {
 
 
         Kunde k1 = kundenService.get(kundeid);
-        Rechnung r1 = rechnungService.get(rechid);
-        rechnungService.delete(r1.getId());
+        rechnungsRequest.setKunde(k1);
+        rechnungService.delete(rechnungsRequest.getId());
 
     }
 
