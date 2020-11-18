@@ -22,13 +22,13 @@ public class Kunde {
     private String nachname;
 
 
+
     @OneToMany
     private List<Rechnung> rechnungsliste;
 
-    public Kunde(String vorname, String nachname, List<Rechnung> rechnungsliste) {
+    public Kunde(String vorname, String nachname) {
         this.vorname = vorname;
         this.nachname = nachname;
-        this.rechnungsliste = rechnungsliste;
     }
 
     public Long getId() {
