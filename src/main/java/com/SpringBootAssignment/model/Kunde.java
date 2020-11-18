@@ -25,6 +25,11 @@ public class Kunde {
     @OneToMany
     private List<Rechnung> rechnungsliste;
 
+    public Kunde(String vorname, String nachname, List<Rechnung> rechnungsliste) {
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.rechnungsliste = rechnungsliste;
+    }
 
     public Long getId() {
         return id;

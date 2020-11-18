@@ -20,9 +20,9 @@ public class KundenService {
     }
 
 
-    public void save(Kunde kunde) {
+    public Kunde save(Kunde kunde) {
 
-        repo.save(kunde);
+       return repo.save(kunde);
     }
 
     public Kunde get(Long id) {
