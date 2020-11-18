@@ -35,7 +35,12 @@ public class Rechnung {
     private Kunde kunde;
 
 
-
+    public Rechnung(Long rechnungsnummer, Date rechnungsdatum, Long rechnungsbetrag, Kunde kunde) {
+        this.rechnungsnummer = rechnungsnummer;
+        this.rechnungsdatum = rechnungsdatum;
+        this.rechnungsbetrag = rechnungsbetrag;
+        this.kunde = kunde;
+    }
 
     public Long getId() {
         return id;

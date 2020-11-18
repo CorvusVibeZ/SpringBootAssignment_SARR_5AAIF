@@ -42,7 +42,20 @@ public class RechnungController {
         return rechnungService.save(rechnung);
     }
 
-    public
+
+    @PutMapping("/kunden/{id}/rechnungen/{rechnungsid}")
+    public Rechnung updateRechnung(@PathVariable(value = "id") Long kundeid,
+                                   @PathVariable(value = "rechnungsid") Long rechid,
+                                   @Validated @RequestBody Rechnung rechnungsRequest) {
+
+        Kunde k1 = kundenService.get(kundeid);
+        Rechnung r1 = rechnungService.get(rechid);
+
+        Rechnung r2 = new Rechnung(r1.getRechnungsnummer(),r1.getRechnungsdatum(),r1.getRechnungsbetrag(),k1);
+
+        return r2;
+
+    }
 
 
 
