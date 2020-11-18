@@ -22,7 +22,7 @@ public class Rechnung {
     private Long rechnungsnummer;
 
     @NotNull
-    private Date rechnungsdatum;
+    private String rechnungsdatum;
 
     @NotNull
     private Long rechnungsbetrag;
@@ -35,11 +35,10 @@ public class Rechnung {
     private Kunde kunde;
 
 
-    public Rechnung(Long rechnungsnummer, Date rechnungsdatum, Long rechnungsbetrag, Kunde kunde) {
+    public Rechnung(Long rechnungsnummer, String rechnungsdatum, Long rechnungsbetrag) {
         this.rechnungsnummer = rechnungsnummer;
         this.rechnungsdatum = rechnungsdatum;
         this.rechnungsbetrag = rechnungsbetrag;
-        this.kunde = kunde;
     }
 
     public Long getId() {
@@ -58,11 +57,11 @@ public class Rechnung {
         this.rechnungsnummer = rechnungsnummer;
     }
 
-    public Date getRechnungsdatum() {
+    public String getRechnungsdatum() {
         return rechnungsdatum;
     }
 
-    public void setRechnungsdatum(Date rechnungsdatum) {
+    public void setRechnungsdatum(String rechnungsdatum) {
         this.rechnungsdatum = rechnungsdatum;
     }
 

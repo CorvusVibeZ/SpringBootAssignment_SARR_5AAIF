@@ -14,6 +14,7 @@ public class Kunde {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "kunde_id")
     private Long id;
 
     @NotNull

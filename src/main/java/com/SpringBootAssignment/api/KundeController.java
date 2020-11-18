@@ -37,13 +37,13 @@ public class KundeController {
     @PutMapping("/kunden/{id}")
     public Kunde updateKunde(@PathVariable(value = "id") Long id, @Validated @RequestBody Kunde kunde) {
 
+         Kunde k1 = kundenService.get(id);
+         k1.setVorname(kunde.getVorname());
+         k1.setNachname(kunde.getNachname());
+         k1.setRechnungsliste(kunde.getRechnungsliste());
 
-         kunde.setId(kundenService.get(id).getId());
-         kunde.setVorname(kundenService.get(id).getVorname());
-         kunde.setNachname(kundenService.get(id).getNachname());
-         kunde.setRechnungsliste(kundenService.get(id).getRechnungsliste());
-         kundenService.save(kunde);
-         return kunde;
+         return kundenService.save(k1);
+
     }
 
 
