@@ -19,9 +19,10 @@ public class RechnungService {
         return repo.findAll();
     }
 
-    public void save(Rechnung rechnung) {
 
-        repo.save(rechnung);
+    public Rechnung save(Rechnung rechnung) {
+
+        return repo.save(rechnung);
     }
 
     public Rechnung get(Long id) {
